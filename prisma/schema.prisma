@@ -12,7 +12,9 @@ datasource db {
 
 model User {
   id   Int    @id @default(autoincrement())
-  name String
+  firstName String @db.VarChar(255)
+  lastName String @db.VarChar(255)
 
+  @@index([firstName, lastName])
   @@map("user")
 }
