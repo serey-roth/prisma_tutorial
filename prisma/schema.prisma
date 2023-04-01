@@ -12,6 +12,7 @@ datasource db {
 
 model User {
   id              String          @id @default(uuid())
+  age             Int
   firstName       String          @db.VarChar(255)
   lastName        String          @db.VarChar(255)
   email           String          @unique
@@ -42,5 +43,6 @@ model Post {
 
 model Category {
   id    String @id @default(uuid())
+  name  String @unique
   posts Post[]
 }
