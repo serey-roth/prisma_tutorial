@@ -19,9 +19,10 @@ model User {
   writtenPosts    Post[]          @relation("writtenPosts")
   likedPosts      Post[]          @relation("likedPosts")
   userPreferences UserPreference?
+  role            Role            @default(BASIC)
 
-  @@index([email])
   @@unique([age, firstName, lastName])
+  @@index([email])
   @@map("user")
 }
 
@@ -47,4 +48,9 @@ model Category {
   id    String @id @default(uuid())
   name  String @unique
   posts Post[]
+}
+
+enum Role {
+  BASIC
+  ADMIN
 }
