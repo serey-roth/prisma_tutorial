@@ -20,6 +20,8 @@ model User {
   likedPosts      Post[]          @relation("likedPosts")
   userPreferences UserPreference?
 
+  @@index([email])
+  @@unique([age, firstName, lastName])
   @@map("user")
 }
 
